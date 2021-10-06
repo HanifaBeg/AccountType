@@ -38,7 +38,7 @@ const accountTypeChecker = (accountBalanceHistory) => {
      * Taking out the initial Difference and assumes that 
      * Account is of Fixed type
      */
-
+      
     var InitialDiff = accountBalanceHistory[1].account.balance.amount - accountBalanceHistory[0].account.balance.amount;
 
     for (i = 1; i + 1 < accountBalanceHistory.length; i++) {
@@ -62,13 +62,15 @@ const accountTypeChecker = (accountBalanceHistory) => {
         }
 
     }
-
+    /**Checking The account type of the user true 
+     * value give result A else false value give result B */
     return result ? "A" : "B";
 };
 
 //Check();  uncomment it if not using testcase file
 
 module.exports = function Check(accountBalanceHistory) {
+
     var accType;
     /**
      * If no parameter is passed then it uses predefined value 
@@ -85,7 +87,12 @@ module.exports = function Check(accountBalanceHistory) {
      * 
      */
      
+
+    /**Checking if adequet data is provided to find the result */
+    if(accountBalanceHistory.length>1) 
     accType = accountTypeChecker(accountBalanceHistory);
+    else
+    return("Account Balance sheet not correct")
    }
     
     
